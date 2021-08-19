@@ -23,19 +23,10 @@ ___
 
 <ul>
     <li>
-        <a href="#chapter-1" style="font-weight: bold">Chapter 1. Clean Code</a>
-        <ul>
-            <li>
-                <a href="#chapter-1-1">
-                    1. Why It is Matter
-                </a>
-            </li>
-            <li>
-                <a href="#chapter-1-2">
-                    2. What is Clean Code
-                </a>
-            </li>
-        </ul>
+        <a href="#chapter-1">Chapter 1 - Clean Code</a>
+    </li>
+    <li>
+        <a href="#chapter-3">Chapter 3 - Function</a>
     </li>
 </ul>
 
@@ -45,15 +36,9 @@ ___
     Chapter 1 - Clean Code
 </h2>
 
-<h4 id="chapter-1-1">1. Why It is Matter</h4>
-
-Creating a clean code is important, it might help you to add more features in the future easily. Have you ever been slowed down by someone else's messy code? That's why writing a good code is important
-
-
-<h4 id="chapter-1-2">2. What is Clean Code</h4>
+Creating a clean code is important, it might help you to add more features in the future easily. Have you ever been slowed down by someone else's messy code? That's why writing a good code is important. So, what is clean code? 
 
 Clean Code ...
-
 * is elegant and efficient
 * is simple and direct
 * has meaningful names and is self-documenting
@@ -66,3 +51,66 @@ Clean Code ...
 * has unit and acceptance tests
 * is minimal (KISS and YAGNI)
 * does not repeat itself (DRY Principle)
+
+<hr>
+
+<h2 id="chapter-3" style="text-align:center">
+    Chapter 3 - Function
+</h2>
+
+These are some several rules, to make your function cleaner:
+
+1. A function should be **small and short**
+   <br/>
+
+    Make the function not so big so the it fits into your screen, so you can read all the function does without scrolling vertically or horizontally. This approach will make you grasp the purpose of the function in the first place from the first line into the last line.
+    <br/>
+    
+    It should be readable from top to bottom as a paraghraph
+
+➖➖➖
+
+2. A function should **do just one thing**
+    <br>
+
+    <p style="color: green; font-weight: 500">
+        Function should only do one thing, They should do it well, and they should do it only**
+    </p>
+    <br/>
+
+    Function should be only do the `verb` that the function name suggest. If you can still extract a function from the function, so it is not small enoung and do more than one thing.
+    <br/>
+
+    ```
+    ❌ function order(int id, boolean clearCart, boolean flushOrderSession) {...}
+
+    ✅ function order(int id) {...}
+    ✅ function clearCart(int id) {...}
+    ✅ function flushOrderSession(int id) {...}
+    ```
+➖➖➖
+
+3. Avoid **switch statement**
+   <br/>
+
+    //TODO: Need to add more explanation on this one
+    Use polymorphism and bury the switch statement in an abstract factory.
+
+➖➖➖
+
+4. Use **descriptive name**
+   <br/>
+
+    The name of the function should be clear, it suggest one thing. And from the name of the function the reader should have a clue what does the function is doing.
+    <br/>
+
+    Usually the  function is in `verb` form. Since the function is will doing something, but sometime the function name also could be in question format. It is okay to make a long function name, as long as the is no shorter way to describe what does the function is doing
+    <br/> 
+
+    ```
+    ❌ function onHandleChange() {...} // Not describing what does the function do
+
+    ✅ function setUserName(String name) {...}
+    ✅ function isUserActive() {...}
+    ```
+<br/>
