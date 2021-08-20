@@ -26,7 +26,7 @@ ___
         <a href="#chapter-1">Chapter 1 - Clean Code</a>
     </li>
     <li>
-        <a href="#chapter-2">Chapter 1 - Clean Code</a>
+        <a href="#chapter-2">Chapter 2 - Naming</a>
     </li>
     <li>
         <a href="#chapter-3">Chapter 3 - Function</a>
