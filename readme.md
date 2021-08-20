@@ -10,7 +10,7 @@ I am trying to write this summary to strengthen my understanding of this book an
 I hope I can make the sentence as simple as easy to understand for non-native English speakers (like me), so feel free to contribute, comment, and pull requests are a huge welcome :grin:
 
  
-:warning: If you think that this repo should not be public caused by copyright infringement. Feel free to DM me on any platform I have. :warning:
+:warning:&nbsp; If you think that this repo should not be public caused by copyright infringement. Feel free to DM me on any platform I have. :warning:
 ___
 
 
@@ -24,6 +24,9 @@ ___
 <ul>
     <li>
         <a href="#chapter-1">Chapter 1 - Clean Code</a>
+    </li>
+    <li>
+        <a href="#chapter-2">Chapter 1 - Clean Code</a>
     </li>
     <li>
         <a href="#chapter-3">Chapter 3 - Function</a>
@@ -97,6 +100,105 @@ Clean Code ...
 </details>
 
 <hr>
+
+<details open>
+<summary>Chapter 2 - Naming</summary>
+
+<h2 id="chapter-2" style="text-align:center">
+    Chapter 2 - Naming
+</h2>
+
+Naming is easy yet hard to choose when you coding something, it might indicates that you are writing a good code or a bad code. There are several indicator to follow when naming a variable, function, or classes:
+
+1. <span id="chapter-2-1">Use **Intention-Revealing** Name</span>
+    <br />
+    ```
+    ❌  int d;
+    ✅  int daySinceCreated;
+    ✅  int dayLeft;
+
+    ❌  function calc(int num1, int num2) { ... }
+    ✅  function multiply(int num1, int num2) { ... }
+    ```
+
+2. <span id="chapter-2-2">Make **Meaningful, Descriptive, and Non-ambigous** Name</span>
+    <br />
+    ```
+    ❌  string date1, date2;
+    ✅  string startDate, endDate;
+
+    ❌  float pft, profit
+    ✅  float profitBeforeTax, profitAfterTax
+
+    ❌  let productData, productInfo
+    ✅  let productData, productDescription
+    ```
+
+3. <span id="chapter-2-3">Use **Pronounceable** Name (Don't use abbreviation/acronyms)</span>
+    <br />
+    ```
+    ❌  let rltdJobPst;
+    ✅  let relatedJobPost;
+    ```
+
+4. <span id="chapter-2-4">Use **Nouns** For Classes, Variables and Use **Verb** For Function</span>
+    <br />
+    ```
+    ❌  let setCurrentJobPost;
+    ✅  let currentJobPost;
+
+    ❌  function jobpost() { ... }
+    ✅  function getJobPost() { ... }
+    ```
+
+
+5. <span id="chapter-2-5">Pick a **Single Word** per Concept and Use It Widely Across The Entire App</span>
+    <br />
+
+    ```
+    ❌  function findJobPostById { ... }
+    ❌  function fetchJobPostDetail { ... }
+    ❌  function getJobPosts { ... }
+    ❌  function findCurrentJobPost { ... }
+
+    ✅  function getJobPostById { ... }
+    ✅  function getJobPostDetail { ... }
+    ✅  function getJobPosts { ... }
+    ✅  function getCurrentJobPost { ... }
+    ```
+
+
+6. <span id="chapter-2-6">Avoid **Unnecessary** Word</span>
+    <br/>
+
+    ```
+    ❌  JobPost[] jobPostArray
+    ❌  JobPost[] jobPostList
+    ❌  JobPost[] sevenJobPostList
+
+    // We already know the variable will store list/array. So do this instead
+    ✅  JobPost[] jobPosts 
+    ```
+
+7. <span id="chapter-2-7">Avoid **Meaningless** Prefix/Suffix</span>
+    <br />
+
+    ```
+    ❌  const projectInfo
+    ❌  const jobPostData
+
+    ✅  const project
+    ✅  const jobPost 
+    ```
+
+And, last but not least
+
+7. <span id="chapter-2-8">Follow common naming convention</span>
+    <br/>
+
+    If you are coding with `Javascript` use `camelCase` convention. If you are coding with `Python` use `snack_case`. If your are write `html` use `kebab-case`
+
+<hr />
 
 <details open>
 <summary>Chapter 3 - Function</summary>
