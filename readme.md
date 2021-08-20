@@ -25,7 +25,6 @@ ___
     <li>
         <a href="#chapter-1">Chapter 1 - Clean Code</a>
     </li>
-    <br/>
     <li>
         <a href="#chapter-3">Chapter 3 - Function</a>
         <ol>
@@ -56,40 +55,57 @@ ___
             <a href="#chapter-3-9">
                 <li>Command Query Separation</li>
             </a>
+            <a href="#chapter-3-10">
+                <li>Prefers Exception to Error Code</li>
+            </a>
+            <a href="#chapter-3-11">
+                <li>Don't Repeat Yourself</li>
+            </a>
         </ol>
+    </li>
+    <li>
+        <a href="#chapter-4">Chapter 4 - Comments</a>
     </li>
 </ul>
 
 <hr>
 
+<details open>
+<summary>Chapter 1 - Clean Code</summary>
+    
 <h2 id="chapter-1" style="text-align:center">
     Chapter 1 - Clean Code
-</h2>
+</h2> 
 
 Creating a clean code is important, it might help you to add more features in the future easily. Have you ever been slowed down by someone else's messy code? That's why writing a good code is important. So, what is clean code? 
 
 Clean Code ...
-* is elegant and efficient
-* is simple and direct
-* has meaningful names and is self-documenting
-* is pleasing to read, and reads like well-written prose
-* does one thing well
-* does not tempt the developer to write bad code - on the flip side, when others change bad code, they tend to make it worse
-* never hides the designer's intent but is rather full of crisp abstractions and straightforward lines of control
-* is when each method you read turns out to be pretty much what you expected (Least Astonishment Principle)
-* can be read, and enhanced by a developer other than its original author 
-* has unit and acceptance tests
-* is minimal (KISS and YAGNI)
-* does not repeat itself (DRY Principle)
+<ul>
+    <li>is elegant and efficient</li>
+    <li>is simple and direct</li>
+    <li>has meaningful names and is self-documenting</li>
+    <li>is pleasing to read, and reads like well-written prose</li>
+    <li>does one thing well</li>
+    <li>does not tempt the developer to write bad code - on the flip side, when others change bad code, they tend to make it worse</li>
+    <li>never hides the designer's intent but is rather full of crisp abstractions and straightforward lines of control</li>
+    <li>is when each method you read turns out to be pretty much what you expected (Least Astonishment Principle)</li>
+    <li>can be read, and enhanced by a developer other than its original author </li>
+    <li>has unit and acceptance tests</li>
+    <li>is minimal (KISS and YAGNI)</li>
+    <li>does not repeat itself (DRY Principle)</li>
+</ul>
+</details>
 
 <hr>
+
+<details open>
+<summary>Chapter 3 - Function</summary>
 
 <h2 id="chapter-3" style="text-align:center">
     Chapter 3 - Function
 </h2>
 
 These are some several rules, to make your function cleaner:
-
 
 1. <span id="chapter-3-1">A function should be **small and short**</span>
     <br/>
@@ -105,7 +121,7 @@ These are some several rules, to make your function cleaner:
     <br>
 
     <p style="color: green; font-weight: 500">
-        Function should only do one thing, They should do it well, and they should do it only**
+        Function should only do one thing, They should do it well, and they should do it only
     </p>
     <br/>
 
@@ -248,7 +264,7 @@ These are some several rules, to make your function cleaner:
 
 ➖➖➖
 
-9. <span id="chapter-3-8">Command Query Separation</span>
+9. <span id="chapter-3-9">Command Query Separation</span>
     <br/>
 
     Your function should do a command or a query. **But not both**
@@ -258,3 +274,81 @@ These are some several rules, to make your function cleaner:
     ❌ boolean setRole() { ... }
     ✅ void setRole() { ... }
     ```
+
+➖➖➖
+
+10. <span id="chapter-3-10">Prefers Exception to Error Code</span>
+    <br/>
+
+    Prepare an **exception block** to catch an error, rather than to leave the error code as is. It is a best practice to catch error and handling it in certain way.
+
+
+    <br/>
+
+    ```
+    transformUserToStaffFormat () { 
+        {}.map() // ❌ Will caused error with no handler
+    }
+    
+    ✅ transformUserToStaffFormat () { 
+        try {
+            {}.map()
+        } catch (error) {
+            handleErrro(error)
+        }
+    }
+    ```
+
+➖➖➖
+
+11. <span id="chapter-3-11">Don't Repeat Yourself</span>
+    <br/>
+
+    When you write a function, it should minimize or even remove repeated code or purpose since a function should represent one purpose. And also, please noted that when you are wiriting function you should take a notice that you shouldn't do repeated code 
+
+</details>
+
+<hr />
+
+<details open>
+<summary>Chapter 4 - Comment</summary>
+
+<h2 id="chapter-4" style="text-align:center">
+    Chapter 4 - Comments
+</h2>
+
+Generally, **comments is bad**. You should avoid comment in your code as possible. From [Chapter 2 - Naming](#chapter-2) and [Chapter 3 - Function](#chapter-3) you should already aware that your code should self explanatory, it should express the purpose. So avoid using comment in your code.
+
+But there is some exception to white comment:
+
+* TODO comment
+* Legal comment
+* The necessary comment in case the code couldn't speak it self (<i>ex: regex pattern</i>)
+* Clarification and Amplification comment
+
+Clarification and amplication comment example:
+```
+const mapResponseToForm = () => {
+    ... 
+
+    // This is the best way so far to avoid to prevent race condition. Don't remove
+    setTimeOut(() => {
+        setFormTypeBasedOnProjectCategory(response.project_category);
+    }, 1000)
+}
+
+
+// Avoid using this function unless you really need to kill entire app
+const killProcess() {
+    ...
+}
+
+```
+<br/>
+
+In conclusion,
+<span style="color: red; font-size: 25px">Don't leave a comment in your code!!!</span>
+</details>
+
+
+<hr />
