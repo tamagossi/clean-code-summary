@@ -7,7 +7,7 @@ Greetings :wave:::wave:::wave::,
 This is the summary of :book:&nbsp; Clean Code: A Handbook of Agile Software Craftsmanship by Robert C. Martin&nbsp;:book:. 
 I am trying to write this summary to strengthen my understanding of this book and try to implement Feynman Technique.
 
-I hope I can make the sentence as simple as easy to understand for non-native English speakers (like me), so feel free to contribute, comment, and pull requests are a huge welcome :grin:
+I hope I can make the sentence as simple as easy to understand for non-native English speakers (like me), so feel free to contribute, comment, and pull requests if there are any grammatical mistake :grin:
 
  
 :warning:&nbsp; If you think that this repo should not be public caused by copyright infringement. Feel free to DM me on any platform I have. :warning:
@@ -68,6 +68,9 @@ ___
     </li>
     <li>
         <a href="#chapter-4">Chapter 4 - Comments</a>
+    </li>
+    <li>
+        <a href="#chapter-5">Chapter 5 - Code Formatting</a>
     </li>
 </ul>
 
@@ -197,6 +200,8 @@ And, last but not least
     <br/>
 
     If you are coding with `Javascript` use `camelCase` convention. If you are coding with `Python` use `snack_case`. If your are write `html` use `kebab-case`
+
+</details>
 
 <hr />
 
@@ -452,5 +457,31 @@ In conclusion,
 <span style="color: red; font-size: 25px">Don't leave a comment in your code!!!</span>
 </details>
 
+
+<hr />
+
+<details open>
+<summary>Chapter 5 - Code Formatting</summary>
+
+<h2 id="chapter-5" style="text-align:center">
+    Chapter 5 - Code Formatting
+</h2>
+
+***Code formatting is important***. It is too important to ignore, code formatting is about communication, and the communication is the professional developer's first order of business. It is even **more important than *getting it work*** since the requirements might be changed tommorow, but code realibility will be the core of your application in the future for maintainibility or future changes
+
+#### The Newspaper Metaphor
+
+Think like a well-written newspaper. You read it vertically, at the top you expect the overall view of the story telling you about, and then you will face the first paragraph which tells you the synopsis of the story. And as you continue down, you will more dig dive into the detail.
+
+You should think as like writing a well-writter newspaper when you are coding. The code you are writing should **self documentary** to be able to tell the story to the readers.
+
+Everyone might have their own style of formatting, but you might follow this rules (or convention, I think..):
+
+1. User vertical spacing, density, and distance to make it easy to read your file
+2. **Group code by their functionality**. Related function must be close. Related code must appear vertically dense. *Additionally:* me personally like to order function alphabetically to easily search the suggested function
+3. **Avoid too long files**. My personal preference is too keep one file around (or shorter than) 1000 lines
+4. **Avoid too-wide code lines**. Make sure the code are visible in a one screen, so you have a good picture of the file is telling you about
+5. **Write high0level code first, followed lower level code**. Keep the function which call another above the invoked function, so then you can read the flow top to bottom
+6. **Follow proper identation across code files**. Personally I prefer to follow *language-formatting-convention*
 
 <hr />
