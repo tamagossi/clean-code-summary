@@ -72,6 +72,9 @@ ___
     <li>
         <a href="#chapter-5">Chapter 5 - Code Formatting</a>
     </li>
+    <li>
+        <a href="#chapter-6">Chapter 5 - Code Formatting</a>
+    </li>
 </ul>
 
 <hr>
@@ -485,3 +488,24 @@ Everyone might have their own style of formatting, but you might follow this rul
 6. **Follow proper identation across code files**. Personally I prefer to follow *language-formatting-convention*
 
 <hr />
+
+<details open>
+<summary>Chapter 6 - Object & Data Structures</summary>
+
+<h2 id="chapter-6" style="text-align:center">
+    Chapter 6 - Object & Data Structure
+</h2>
+
+When creating an application. We have to choose the right choice between **Object** and **Data Structure**. There is no the most good of all time between the two. but the usage may be different based on your case. Here what to remember when choosing Object or a Data Structure:
+
+* **Object** exposes behaviour and hide data, it easy to add new kinds of data wihout changing behaviour. **But**, it hard to add new behaviour to existing 
+* While **Data Structure** exposes data and no significat behaviour. This make it easy to add new behaviours, but it hards to add new data structures to existing function
+
+#### The Law of Demeter
+
+This law is telling about how or how should function invoked by others. *The Law of Demeter* says that a **method f** of a **class C** should only call the methods of there:
+
+* C
+* An object create by f
+* An object passed as an argument to f
+* An object held in an instance variable of C
