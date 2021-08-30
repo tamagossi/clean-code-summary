@@ -73,7 +73,7 @@ ___
         <a href="#chapter-5">Chapter 5 - Code Formatting</a>
     </li>
     <li>
-        <a href="#chapter-6">Chapter 5 - Code Formatting</a>
+        <a href="#chapter-6">Chapter 6 - Object & Data Structures</a>
     </li>
 </ul>
 
