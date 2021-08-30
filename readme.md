@@ -75,6 +75,9 @@ ___
     <li>
         <a href="#chapter-6">Chapter 6 - Object & Data Structures</a>
     </li>
+    <li>
+        <a href="#chapter-7">Chapter 7 - Error Handling</a>
+    </li>
 </ul>
 
 <hr>
@@ -509,3 +512,20 @@ This law is telling about how or how should function invoked by others. *The Law
 * An object create by f
 * An object passed as an argument to f
 * An object held in an instance variable of C
+
+<hr />
+
+
+<details open>
+<summary>Chapter 7 - Error Handling</summary>
+<h2 id="chapter-7" style="text-align:center">
+    Chapter 7 - Error Handling
+</h2>
+
+Clean code is readable, but it must also be robutst. One way to write robust clean code if we see error handling as a seperate concern. These are some tips when dealing with error handling:
+
+* **Seperate your logic and your error handling**. We should have a clear seperation between error handling and bussiness logic. Avoid using *if statement* to check if the code is contains error or not
+* **Provide Context**. The error handling should tell the readers that receive the error the aduquate context. It should whats is going on, why the code is error, where the error happens
+* **Map unknown error**. Wrap all errors and exceptions raised from external systems
+* **Don't Return or Pass Null**. Avoid returning null
+</details>
