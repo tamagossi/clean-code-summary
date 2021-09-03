@@ -82,7 +82,7 @@ ___
 
 <hr>
 
-<details open>
+<details>
 <summary>Chapter 1 - Clean Code</summary>
     
 <h2 id="chapter-1" style="text-align:center">
@@ -110,7 +110,7 @@ Clean Code ...
 
 <hr>
 
-<details open>
+<details>
 <summary>Chapter 2 - Naming</summary>
 
 <h2 id="chapter-2" style="text-align:center">
@@ -211,7 +211,7 @@ And, last but not least
 
 <hr />
 
-<details open>
+<details>
 <summary>Chapter 3 - Function</summary>
 
 <h2 id="chapter-3" style="text-align:center">
@@ -423,7 +423,7 @@ These are some several rules, to make your function cleaner:
 
 <hr />
 
-<details open>
+<details>
 <summary>Chapter 4 - Comment</summary>
 
 <h2 id="chapter-4" style="text-align:center">
@@ -466,7 +466,7 @@ In conclusion,
 
 <hr />
 
-<details open>
+<details>
 <summary>Chapter 5 - Code Formatting</summary>
 
 <h2 id="chapter-5" style="text-align:center">
@@ -492,7 +492,7 @@ Everyone might have their own style of formatting, but you might follow this rul
 
 <hr />
 
-<details open>
+<details>
 <summary>Chapter 6 - Object & Data Structures</summary>
 
 <h2 id="chapter-6" style="text-align:center">
@@ -516,7 +516,7 @@ This law is telling about how or how should function invoked by others. *The Law
 <hr />
 
 
-<details open>
+<details>
 <summary>Chapter 7 - Error Handling</summary>
 <h2 id="chapter-7" style="text-align:center">
     Chapter 7 - Error Handling
