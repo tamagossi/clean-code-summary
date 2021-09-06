@@ -78,12 +78,29 @@ ___
     <li>
         <a href="#chapter-7">Chapter 7 - Error Handling</a>
     </li>
+     <li>
+        <a href="#chapter-3">Chapter 8 - Boundaries</a>
+        <ol>
+            <a href="#chapter-8-1">
+                <li>Third Party Code</li>
+            </a>
+            <a href="#chapter-8-2">
+                <li>Using Code That Does Not Exist</li>
+            </a>
+            <a href="#chapter-8-3">
+                <li>Testing The 3rd Party Libraries</li>
+            </a>
+            <a href="#chapter-8-4">
+                <li>Clean Boundaries</li>
+            </a>
+        </ol>
+    </li>
 </ul>
 
 <hr>
 
 <details>
-<summary>Chapter 1 - Clean Code</summary>
+<summary id="chapter-1">Chapter 1 - Clean Code</summary>
     
 <h2 id="chapter-1" style="text-align:center">
     Chapter 1 - Clean Code
@@ -111,9 +128,9 @@ Clean Code ...
 <hr>
 
 <details>
-<summary>Chapter 2 - Naming</summary>
+<summary id="chapter-2">Chapter 2 - Naming</summary>
 
-<h2 id="chapter-2" style="text-align:center">
+<h2  style="text-align:center">
     Chapter 2 - Naming
 </h2>
 
@@ -212,9 +229,9 @@ And, last but not least
 <hr />
 
 <details>
-<summary>Chapter 3 - Function</summary>
+<summary id="chapter-3">Chapter 3 - Function</summary>
 
-<h2 id="chapter-3" style="text-align:center">
+<h2  style="text-align:center">
     Chapter 3 - Function
 </h2>
 
@@ -424,9 +441,9 @@ These are some several rules, to make your function cleaner:
 <hr />
 
 <details>
-<summary>Chapter 4 - Comment</summary>
+<summary id="chapter-4" >Chapter 4 - Comment</summary>
 
-<h2 id="chapter-4" style="text-align:center">
+<h2 style="text-align:center">
     Chapter 4 - Comments
 </h2>
 
@@ -467,9 +484,9 @@ In conclusion,
 <hr />
 
 <details>
-<summary>Chapter 5 - Code Formatting</summary>
+<summary id="chapter-5">Chapter 5 - Code Formatting</summary>
 
-<h2 id="chapter-5" style="text-align:center">
+<h2  style="text-align:center">
     Chapter 5 - Code Formatting
 </h2>
 
@@ -489,13 +506,14 @@ Everyone might have their own style of formatting, but you might follow this rul
 4. **Avoid too-wide code lines**. Make sure the code are visible in a one screen, so you have a good picture of the file is telling you about
 5. **Write high0level code first, followed lower level code**. Keep the function which call another above the invoked function, so then you can read the flow top to bottom
 6. **Follow proper identation across code files**. Personally I prefer to follow *language-formatting-convention*
+</details>
 
 <hr />
 
 <details>
-<summary>Chapter 6 - Object & Data Structures</summary>
+<summary id="chapter-6">Chapter 6 - Object & Data Structures</summary>
 
-<h2 id="chapter-6" style="text-align:center">
+<h2  style="text-align:center">
     Chapter 6 - Object & Data Structure
 </h2>
 
@@ -512,13 +530,15 @@ This law is telling about how or how should function invoked by others. *The Law
 * An object create by f
 * An object passed as an argument to f
 * An object held in an instance variable of C
+</details>
+
 
 <hr />
 
 
 <details>
-<summary>Chapter 7 - Error Handling</summary>
-<h2 id="chapter-7" style="text-align:center">
+<summary id="chapter-7">Chapter 7 - Error Handling</summary>
+<h2  style="text-align:center">
     Chapter 7 - Error Handling
 </h2>
 
@@ -528,4 +548,89 @@ Clean code is readable, but it must also be robutst. One way to write robust cle
 * **Provide Context**. The error handling should tell the readers that receive the error the aduquate context. It should whats is going on, why the code is error, where the error happens
 * **Map unknown error**. Wrap all errors and exceptions raised from external systems
 * **Don't Return or Pass Null**. Avoid returning null
+</details>
+
+<hr />
+
+<details>
+<summary id="chapter-8">Chapter 8 - Boundaries</summary>
+    
+<h2  style="text-align:center">
+    Chapter 8 - Boundaries
+</h2> 
+
+<h4 id="chapter-8-1">Third Party Code</h4>
+When you use third party code, you will be presented with many capabilities of the code, usually third party code makers target a wide audience. But as users, they only needed a few abilities that were just what they needed. In the book it is mentioned that, a good way to use third party code is to create an `Adapter` or `Boundary Class` to create an interface from the third party that we use to make the code cleaner. For example:
+<br/>
+<br/>
+
+When you installing `axios`, and read the documentation. You may read these API related to HTTP request (or even more than these if you deep dive into the API):
+
+```JS
+    // Instance methods
+    axios.request(config);
+    axios.get(url[, config]);
+    axios.delete(url[, config]);
+    axios.head(url[, config]);
+    axios.options(url[, config]);
+    axios.post(url[, data[, config]]);
+    axios.put(url[, data[, config]]);
+    axios.patch(url[, data[, config]]);
+    axios.getUri([config]);
+```
+
+Let say, you just need the `get` method and the `delete` method. Yes, of course you can do such a `axio.get` within your app to do a HTTP Get Request. But, it is not clean, why? 
+
+**Because we have no control over the 3rd party code**, we have no control over whether the code will stay the same for a long time or not. The problem is, if the code changes in the near future and it changes the way we use the API. So, we have to change all the code that uses that code in many places. Hence, it is better to use it like this:
+
+```JS
+// ✅ request-adapter-service.js
+
+import axios from 'axios';
+
+export default class RequestAdapterService {
+	sendGetRequest(URL, params) {
+		return this.reqClient.get(URL, { params });
+	}
+
+	sendDeleteRequest(URL, requestBody) {
+		return this.reqClient.delete(URL, requestBody);
+	}
+}
+```
+
+```JS
+//some-feature.js
+
+const service = new RequestAdapterService();
+
+
+const response = service.sendGetRequest('http://fakeapi.com', { limit: 2});
+```
+
+with class `RequestAdapterService` we limit the usage of `axios` for only the things that we need. and also, we can control what we have to do with the `sendGetRequest` API. And it's in one place, where (let say) `axios` changes in the future. We just need to change the file `request-adapter-service`
+<br />
+
+➖➖➖
+
+<h4 id="chapter-8-2">Using Code That Does Not Exist</h4>
+
+One of the benefits of using `Boundaries` is that we can guess or prepare for development using something we don't know yet. We can create an interface that can bridge the real API (which we don't have yet) with the API we expect
+
+➖➖➖
+
+<h4 id="chapter-8-3">Testing The 3rd Party Libraries</h4>
+We've talked about 3rd party code above, we as developers may be familiar with using 3rd party code. sometimes, we spend a lot of time just studying documentation and trying things out. But there is some better way to understand the 3rd party code.
+<br/>
+<br/>
+**Learning Test**, is a technique to learn 3rd party library. This way we ensure that the library we are going to use will match the expected output we want. And this test can be a reference to find out the library can still be in accordance with the development of the application that we make
+
+➖➖➖
+
+<h4 id="chapter-8-4">Clean Boundaries</h4>
+
+**Clear at boundaries needs clear separationn and tests that define expectation**. avoid letting too much of our code know about the third party particulars. Better to depend on something you can control than on something you don’t contro
+
+<br/>
+
 </details>
