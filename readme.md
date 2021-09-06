@@ -11,6 +11,8 @@ I hope I can make the sentence as simple as easy to understand for non-native En
 
  
 :warning:&nbsp; If you think that this repo should not be public caused by copyright infringement. Feel free to DM me on any platform I have. :warning:
+
+:warning:&nbsp; This summary is also based on my understanding, it **will** be has a lot of flaws caused by my lack of experiences, and english language ability. So then, improvements are very welcome :warning:
 ___
 
 
@@ -623,8 +625,9 @@ One of the benefits of using `Boundaries` is that we can guess or prepare for de
 We've talked about 3rd party code above, we as developers may be familiar with using 3rd party code. sometimes, we spend a lot of time just studying documentation and trying things out. But there is some better way to understand the 3rd party code.
 <br/>
 <br/>
-**Learning Test**, is a technique to learn 3rd party library. This way we ensure that the library we are going to use will match the expected output we want. And this test can be a reference to find out the library can still be in accordance with the development of the application that we make
-
+Learning Test is a technique to learn 3rd party library. This way we ensure that the library we are going to use will match the expected output we want. And this test can be a reference to find out the library can still be in accordance with the development of the application that we make
+<br />
+<br />
 ➖➖➖
 
 <h4 id="chapter-8-4">Clean Boundaries</h4>
